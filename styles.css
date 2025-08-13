@@ -44,6 +44,7 @@ b{
 }
 
 .clockText{
+  
   color: #00c400;
   text-shadow: 0px 0px 5px #00c400;
 }
@@ -52,14 +53,22 @@ b{
   justify-content: space-between;
   
 }
+#timeText{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
 .btn{
+  width: 24%;
   background-color: #585858;
   border-radius: 4px;
   border: none;
   padding: 2px 5px;
   color: #00c400;
   font-size: 0.7rem;
+  cursor: pointer;
 }
+
 
 .hide{
  display: none;
