@@ -25,7 +25,10 @@ b{
   box-shadow: 0px 0px 10px 2px rgb(0,0,0,0.3);
 }
 
-
+#dateText{
+  margin-top: 5px;
+  font-size: .7rem;
+}
 #clockface {
   background-color: #2c2c2c;
   border-radius: 4px;
