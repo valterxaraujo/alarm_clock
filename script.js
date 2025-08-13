@@ -39,7 +39,7 @@ const updateCurrentTime = () => {
   hour = date.getHours().toString().padStart(2,0);
   minutes = date.getMinutes().toString().padStart(2,0);
   seconds = date.getSeconds().toString().padStart(2,0);
-  weekDayText.innerText = weekDayName(weekDay)
+  weekDayText.innerText = getWeekDayName(weekDay)
   monthText.innerText = getMonthName(month)
   dayofMonthText.innerText = dayOfMonth;
   yearText.innerText = year;
