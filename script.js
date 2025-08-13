@@ -34,16 +34,16 @@ const updateCurrentTime = () => {
   const date = new Date();
   weekDay = date.getDay();
   dayOfMonth = date.getDate() 
-  month = date.getMonth() + 1
+  month = date.getMonth()
   year = date.getFullYear()
   hour = date.getHours().toString().padStart(2,0);
   minutes = date.getMinutes().toString().padStart(2,0);
   seconds = date.getSeconds().toString().padStart(2,0);
   weekDayText.innerText = weekDayName(weekDay)
-  monthText.innerText = month
+  monthText.innerText = getMonthName(month)
   dayofMonthText.innerText = dayOfMonth;
   yearText.innerText = year;
-   console.log(weekDay)
+   console.log(yearText.innerText)
   amPm.innerText = hour >= 12? 'PM' : 'AM';
   time.innerText = mode ? `${hourStyle(hour)}:${minutes}:${seconds}` : `${hour}:${minutes}:${seconds}`;
  
@@ -51,8 +51,37 @@ const updateCurrentTime = () => {
 setInterval(updateCurrentTime, 1000);
 setInterval(alarm, 60000);
 
-function weekDayName(num){
-  switch(num){
+function getMonthName(numMonth){
+  switch(numMonth){
+    case 0:
+      return 'JANUARY';
+    case 1:
+      return 'FEBRUARY';
+    case 2:
+      return 'MARCH';
+    case 3:
+      return 'APRIL';
+    case 4:
+      return 'MAY';
+    case 5: 
+      return 'JUNE';
+    case 6:
+      return 'JULY';
+    case 7:
+      return 'AUGUST';
+    case 8:
+      return 'SEPTEMBER';
+    case 9:
+      return 'OCTOBER';
+    case 10:
+      return 'NOVEMBER';
+    case 11:
+      return 'DECEMBER'
+  }
+}
+
+function getWeekDayName(numDayOfWeek){
+  switch(numDayOfWeek){
     case 0:
       return "SUNDAY";
     case 1:
