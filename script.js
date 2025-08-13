@@ -30,6 +30,7 @@ let weekDay = '';
 let dayOfMonth = ''
 let month = '';
 let year = '';
+
 const updateCurrentTime = () => { 
   const date = new Date();
   weekDay = date.getDay();
