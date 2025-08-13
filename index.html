@@ -1,0 +1,33 @@
+<!DOCUMENT html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alarm Clock</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/alarm-clock" rel="stylesheet">
+                
+  </head>
+  <body id="container">
+    <div id='alarm-container'>
+      <div id="clockface">
+        <div>
+        <p><span>dayofweek</span><span>month</span> <span>dayofmonth</s> <span>year</span></p>
+        </div>
+        <div id="timeText">
+          <b id="time"class="clockText">00:00:00</b>
+          <p id="am_pmText" class="clockText">AM</p>
+          <p id="textMode24h" class="clockText hide">24</p>
+        </div>
+      </div>
+      <div id="buttonContainer">
+         <button id="modeBtn" class="btn">Mode</button>
+         <button class="btn">+ Alarm</button>
+         <button class="btn">Snooze</button>
+         <button class="btn">Stop</button>
+      </div>
+     
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

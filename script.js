@@ -1,0 +1,73 @@
+/*
+1- update time every seconds
+1.1- pad every single digit number with 0
+2- change hour style between 24hs and 12h
+3- AM/PM if in 12h mode
+4- create object arrray to store alarms
+5- use Audio to play sound at specified alarm time
+
+*/
+const time = document.getElementById('time');
+const amPm = document.getElementById('am_pmText');
+const modeBtn = document.getElementById('modeBtn')
+const textmode24h = document.getElementById('textMode24h')
+let mode = true;
+const currentAlarm = {
+  hour: null,
+  min: null,
+  sec: null ,
+  title: null,
+  date: null,
+}
+let hour = '';
+let minutes = '';
+let weekDay = '';
+let dayOfMyear = ''
+let month = '';
+let year = '';
+const updateCurrentTime = () => { 
+  const date = new Date();
+   hour = date.getHours().toString().padStart(2,0);
+   minutes = date.getMinutes().toString().padStart(2,0);
+  const seconds = date.getSeconds().toString().padStart(2,0);
+  console.log(new Date())
+  amPm.innerText = hour >= 12? 'PM' : 'AM';
+  time.innerText = mode ? `${hourStyle(hour)}:${minutes}:${seconds}` : `${hour}:${minutes}:${seconds}`;
+ 
+};
+setInterval(updateCurrentTime, 1000);
+setInterval(alarm, 60000);
+
+function alarm() {
+  console.log('alarm: ',hour)
+ // if(hour === '14' && minutes === '58'){
+//    console.log('alarm time')
+//  }else{
+//    console.log(minutes, 'no alarm')
+//  }
+};
+
+function toggleMode(){
+  console.log('changed mode')
+  if(mode){
+    mode = false
+    textMode24h.classList.remove('hide')
+    amPm.classList.add('hide')
+  }else{
+   mode = true
+   textMode24h.classList.add('hide')
+   amPm.classList.remove('hide')
+  }
+}
+function hourStyle(hour){
+  if(hour >= 13){
+    hour -= 12
+  }
+  return hour.toString().padStart(2,0)
+}
+
+function amOrPm(hour){
+  return hour >= 12? 'PM' : 'AM'
+}
+
+modeBtn.addEventListener('click',toggleMode)

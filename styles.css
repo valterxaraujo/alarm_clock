@@ -1,0 +1,63 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+b{
+  font-size: 2rem;
+}
+
+#hour-input{
+  width: 20px;
+}
+
+#container{
+  background-color: #7f7f7f;
+}
+#alarm-container{
+  width: 60%;
+  max-width: 600px;
+  padding: 15px;
+  margin: 20px auto ;
+  background-color: #928989;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 2px rgb(0,0,0,0.3);
+}
+
+
+#clockface {
+  background-color: #2c2c2c;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "alarm clock";
+  box-shadow: inset 0px 0px 5px 2px black;
+  margin-bottom: 5px;
+  
+}
+
+.clockText{
+  color: #00c400;
+  text-shadow: 0px 0px 5px #00c400;
+}
+#buttonContainer{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.btn{
+  background-color: #585858;
+  border-radius: 4px;
+  border: none;
+  padding: 2px 5px;
+  color: #00c400;
+  font-size: 0.7rem;
+}
+
+.hide{
+ display: none;
+}
