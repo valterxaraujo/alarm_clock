@@ -11,6 +11,10 @@ const time = document.getElementById('time');
 const amPm = document.getElementById('am_pmText');
 const modeBtn = document.getElementById('modeBtn')
 const textmode24h = document.getElementById('textMode24h')
+const weekDayText = document.getElementById('weekDayText');
+const monthText = document.getElementById('monthText');
+const dayofMonthText = document.getElementById('dayOfMonthText');
+const yearText = document.getElementById('yearText');
 let mode = true;
 const currentAlarm = {
   hour: null,
@@ -21,22 +25,81 @@ const currentAlarm = {
 }
 let hour = '';
 let minutes = '';
+let seconds = '';
 let weekDay = '';
-let dayOfMyear = ''
+let dayOfMonth = ''
 let month = '';
 let year = '';
+
 const updateCurrentTime = () => { 
   const date = new Date();
-   hour = date.getHours().toString().padStart(2,0);
-   minutes = date.getMinutes().toString().padStart(2,0);
-  const seconds = date.getSeconds().toString().padStart(2,0);
-  console.log(new Date())
+  weekDay = date.getDay();
+  dayOfMonth = date.getDate() 
+  month = date.getMonth()
+  year = date.getFullYear()
+  hour = date.getHours().toString().padStart(2,0);
+  minutes = date.getMinutes().toString().padStart(2,0);
+  seconds = date.getSeconds().toString().padStart(2,0);
+  weekDayText.innerText = getWeekDayName(weekDay)
+  monthText.innerText = getMonthName(month)
+  dayofMonthText.innerText = dayOfMonth;
+  yearText.innerText = year;
+   console.log(yearText.innerText)
   amPm.innerText = hour >= 12? 'PM' : 'AM';
   time.innerText = mode ? `${hourStyle(hour)}:${minutes}:${seconds}` : `${hour}:${minutes}:${seconds}`;
  
 };
 setInterval(updateCurrentTime, 1000);
 setInterval(alarm, 60000);
+
+function getMonthName(numMonth){
+  switch(numMonth){
+    case 0:
+      return 'JANUARY';
+    case 1:
+      return 'FEBRUARY';
+    case 2:
+      return 'MARCH';
+    case 3:
+      return 'APRIL';
+    case 4:
+      return 'MAY';
+    case 5: 
+      return 'JUNE';
+    case 6:
+      return 'JULY';
+    case 7:
+      return 'AUGUST';
+    case 8:
+      return 'SEPTEMBER';
+    case 9:
+      return 'OCTOBER';
+    case 10:
+      return 'NOVEMBER';
+    case 11:
+      return 'DECEMBER'
+  }
+}
+
+function getWeekDayName(numDayOfWeek){
+  switch(numDayOfWeek){
+    case 0:
+      return "SUNDAY";
+    case 1:
+      return 'MONDAY';
+    case 2:
+      return 'TUESDAY';
+    case 3:
+      return 'WEDNESDAY';  
+    case 4:
+      return 'THURSDAY';
+    case 5:
+      return 'FRIDAY';
+    case 6:
+      return 'SATURDAY'
+  }
+
+}
 
 function alarm() {
   console.log('alarm: ',hour)
