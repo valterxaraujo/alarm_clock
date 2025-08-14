@@ -130,3 +130,15 @@ b{
   display: flex;
   justify-content: space-around;
 }
+
+@media (min-width: 768px){
+  #inputContainer{
+    grid-template-columns: 1fr 9fr;
+  }
+  
+  #addAlarmModal label{
+    place-self: center center;
+    text-align: right;
+  }
+
+}
