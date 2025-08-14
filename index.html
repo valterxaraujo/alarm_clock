@@ -1,4 +1,5 @@
 <!DOCUMENT html>
+<!DOCUMENT html>
   <html>
   <head>
     <meta charset="utf-8">
@@ -22,12 +23,34 @@
       </div>
       <div id="buttonContainer">
          <button id="modeBtn" class="btn">Mode</button>
-         <button class="btn">+ Alarm</button>
+         <button id="addAlarmBtn" class="btn">+ Alarm</button>
          <button class="btn">Snooze</button>
          <button class="btn">Stop</button>
       </div>
-     
     </div>
+    <dialog id="addAlarmModal">
+      <h3>Set new alarm</h3>
+      <div id=inputContainer>
+        
+      <label>Title: </label>
+      <input type="text" placeholder="alarm1">
+      <label>Date: </label>
+      <input type="date" value="2025-06-08">
+      <label>Time: </label>
+      <input type="time" value="09:00">
+      </div>
+      <div id="repeatDaysContainer">
+        <span id="sunday" class="alarmDays" data-day="sunday">S</span>
+        <span id="monday" class="alarmDays">M</span>
+        <span id="tuesday" class="alarmDays">T</span>
+        <span id="wednesday" class="alarmDays">W</span>
+        <span id="thursday" class="alarmDays">T</span>
+        <span id="friday" class="alarmDays">F</span>
+        <span id="saturday" class="alarmDays">S</span>
+      </div>
+      <button id="cancelBtn"class="modalBtn btn">Cancel</button>
+      <button id="saveBtn"class="modalBtn btn">Save</button>
+    </dialog>
     <script src="script.js"></script>
   </body>
 </html>

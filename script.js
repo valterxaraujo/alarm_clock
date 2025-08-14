@@ -15,6 +15,9 @@ const weekDayText = document.getElementById('weekDayText');
 const monthText = document.getElementById('monthText');
 const dayofMonthText = document.getElementById('dayOfMonthText');
 const yearText = document.getElementById('yearText');
+const addAlarmModal = document.getElementById('addAlarmModal')
+const addAlarmBtn = document.getElementById('addAlarmBtn')
+const cancelBtn = document.getElementById('cancelBtn');
 let mode = true;
 const currentAlarm = {
   hour: null,
@@ -31,6 +34,13 @@ let dayOfMonth = ''
 let month = '';
 let year = '';
 
+// const test = document.getElementById('test')
+// console.log(test.dataset.day)
+
+console.log(document.querySelectorAll('.alarmDays'))
+
+cancelBtn.addEventListener('click', ()=> addAlarmModal.close())
+addAlarmBtn.addEventListener('click', () => addAlarmModal.showModal());
 const updateCurrentTime = () => { 
   const date = new Date();
   weekDay = date.getDay();
