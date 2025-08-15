@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  /* font-family: Verdana; */
 }
 
 b{
@@ -16,13 +17,15 @@ b{
   background-color: #7f7f7f;
 }
 #alarm-container{
-  width: 60%;
+  width: 90%;
+  height: 0%;
   max-width: 600px;
-  padding: 15px;
+  padding: 8px;
   margin: 20px auto ;
-  background-color: #928989;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px 2px rgb(0,0,0,0.3);
+  /* background-color: #928989; 
+  border-radius: 16px;
+  
+  /*box-shadow: 0px 0px 10px 2px rgb(0,0,0,0.3);*/
 }
 
 #dateText{
@@ -31,7 +34,7 @@ b{
 }
 #clockface {
   background-color: #2c2c2c;
-  border-radius: 4px;
+  border-radius: 8px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -43,8 +46,19 @@ b{
   
 }
 
+#time{
+  z-index: 0;
+}
+
+#time:before{
+  position: absolute;
+  content: "00:00:00";
+  color: #13131399;
+  z-index: -1;
+  text-shadow: none;
+}
+
 .clockText{
-  
   color: #00c400;
   text-shadow: 0px 0px 5px #00c400;
 }
@@ -61,15 +75,107 @@ b{
 .btn{
   width: 24%;
   background-color: #585858;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   padding: 2px 5px;
   color: #00c400;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   cursor: pointer;
 }
 
-
 .hide{
  display: none;
+}
+
+#confirmCancelBtn{
+  margin: 50px auto;
+}
+#addAlarmModal{
+  margin: 80px auto;
+  padding: 8px 4px;
+  width: 70%;
+  text-align: center;
+  border-radius: 16px;
+  background-color: #928989;
+  border: none;
+  box-shadow: 0px 0px 10px 2px rgb(0,0,0,0.3);
+}
+
+#addAlarmModal * {
+  margin: 5px 0px;
+}
+
+#addAlarmModal input{
+  width: 100%; 
+  background-color: #2c2c2c;
+  border: none;
+  color: #00c400;
+  border-radius: 4px;
+  outline: none;
+  place-self: stretch center;
+  /* padding-left: 5px; */
+}
+
+#addAlarmModal input[type="text"]{
+ padding: 1px 2px;
+
+}
+#addAlarmModal input:focus{
+  box-shadow: inset 0px 0px 3px 1px #29ff29;
+}
+#inputContainer{
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 95%;
+}
+
+#addAlarmModal label{
+  place-self: center end;
+  margin-right: 2px;
+}
+ 
+.modalBtn{
+  width: 45%;
+  margin-top: 10px;
+}
+
+#repeatDaysContainer{
+  /* margin: 0 20px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 5px;
+  justify-content: center;
+
+}
+.alarmDays{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1rem;
+  min-height: 1rem;
+  max-width: 2rem;
+  padding: 0.5rem;
+  aspect-ratio: 1 / 1; 
+  font-size: .8rem;
+}
+
+
+.selectedDays{
+  border: 2px solid #00c400;
+  border-radius: 50%;
+  
+}
+
+@media (min-width: 768px){
+  #inputContainer{
+    grid-template-columns: 1fr 9fr;
+  }
+  
+  #addAlarmModal label{
+    place-self: center center;
+    text-align: right;
+  }
+
 }
