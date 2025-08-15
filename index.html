@@ -13,7 +13,7 @@
     <div id='alarm-container'>
       <div id="clockface">
         <div>
-        <p id="dateText" class="clockText"><span id="weekDayText"></span>, <span id="monthText"></span><span id="dayOfMonthText"></span> <span id="yearText"></span></p>
+        <p id="dateText" class="clockText"><span id="weekDayText"></span>,<span id="monthText"></span><span id="dayOfMonthText"></span> <span id="yearText"></span></p>
         </div>
         <div id="timeText">
           <b id="time"class="clockText">00:00:00</b>
@@ -23,7 +23,7 @@
       </div>
       <div id="buttonContainer">
          <button id="modeBtn" class="btn">Mode</button>
-         <button id="addAlarmBtn" class="btn">+ Alarm</button>
+         <button id="addAlarmBtn" class="btn">Alarm</button>
          <button class="btn">Snooze</button>
          <button class="btn">Stop</button>
       </div>
@@ -32,12 +32,12 @@
       <h3>Set new alarm</h3>
       <div id=inputContainer>
         
-      <label>Title: </label>
-      <input type="text" placeholder="alarm1">
-      <label>Date: </label>
-      <input type="date" value="2025-06-08">
-      <label>Time: </label>
-      <input type="time" value="09:00">
+      <label>Title:</label>
+      <input id="newAlarmTitle"type="text" placeholder="alarm1">
+      <label>Date:</label>
+      <input id="newAlarmDate"type="date" value="2025-06-08">
+      <label>Time:</label>
+      <input id="newAlarmTime"type="time" value="09:00">
       </div>
       <div id="repeatDaysContainer">
         <span id="sunday" class="alarmDays" data-day="sunday">S</span>
@@ -50,6 +50,9 @@
       </div>
       <button id="cancelBtn"class="modalBtn btn">Cancel</button>
       <button id="saveBtn"class="modalBtn btn">Save</button>
+    </dialog>
+    <dialog id=confirmCancelBtn>
+      <p>are you sure?</p>
     </dialog>
     <script src="script.js"></script>
   </body>
