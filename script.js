@@ -19,31 +19,60 @@ const addAlarmModal = document.getElementById('addAlarmModal')
 const addAlarmBtn = document.getElementById('addAlarmBtn')
 const cancelBtn = document.getElementById('cancelBtn');
 const confirmCancelBtn = document.getElementById('confirmCancelBtn');
-const newAlarmDate = document.getElementById('newAlarmDate');
+const saveBtn = document.getElementById('saveBtn');
 const alarmDays = document.querySelectorAll('.alarmDays')
+const newAlarmTitle = document.getElementById('newAlarmTitle');
+const newAlarmDate = document.getElementById('newAlarmDate');
+const newAlarmTime = document.getElementById('newAlarmTime');
+const alarmListContainer = document.getElementById('alarmListContainer');
+const inputContainer = document.getElementById('inputContainer')
 let mode = true;
+const alarmList = []
 const currentAlarm = {
-  hour: null,
-  min: null,
-  sec: null ,
   title: null,
-  date: null,
+  time: {
+    hour: null,
+    minute: null
+  },
+  date: {
+    year: null,
+    month: null,
+    day: null,
+  }
 }
-let hour = '';
-let minutes = '';
-let seconds = '';
-let weekDay = '';
-let dayOfMonth = ''
-let month = '';
-let year = '';
+ let hour = '';
+ let minutes = '';
+ let seconds = '';
+ let weekDay = '';
+ let dayOfMonth = ''
+ let month = '';
+ let year = '';
 
-// const test = document.getElementById('test')
-// console.log(test.dataset.day)
+
 
 console.log(newAlarmDate.value);
 
+const setNewAlarm = () => {
+  currentAlarm.title = newAlarmTitle.value;
+  [currentAlarm.time.hour, currentAlarm.time.minute] = newAlarmTime.value.split(':');
+  [currentAlarm.date.year, currentAlarm.date.month, currentAlarm.date.day] = newAlarmDate.value.split('-');
+  alarmList.push(currentAlarm)
+  // alarmListContainer.innerHTML = `
+  //   <div class="newAlarm">
+  //     <p>TITLE: ${currentAlarm.title}</p>
+  //     <p>${[currentAlarm.time.hour, currentAlarm.time.minute].join(':')} ${[currentAlarm.date.year, currentAlarm.date.month, currentAlarm.date.day].join('/')}</p>
+  //   </div>
+  //   `
+}
+
+saveBtn.addEventListener('click', () => {
+  setNewAlarm();
+  inputContainer.reset()
+  addAlarmModal.close()
+  console.log(alarmList)
+})
+
 for( const alarm of alarmDays){
-  console.log(alarm)
   alarm.addEventListener('click', () => alarm.classList.toggle('selectedDays'))
 }
 
@@ -62,7 +91,7 @@ const updateCurrentTime = () => {
   monthText.innerText = getMonthName(month)
   dayofMonthText.innerText = dayOfMonth;
   yearText.innerText = year;
-   console.log(yearText.innerText)
+  //  console.log(yearText.innerText)
   amPm.innerText = hour >= 12? 'PM' : 'AM';
   time.innerText = mode ? `${hourStyle(hour)}:${minutes}:${seconds}` : `${hour}:${minutes}:${seconds}`;
  
