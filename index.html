@@ -1,5 +1,4 @@
 <!DOCUMENT html>
-<!DOCUMENT html>
   <html>
   <head>
     <meta charset="utf-8">
@@ -13,32 +12,31 @@
     <div id='alarm-container'>
       <div id="clockface">
         <div>
-        <p id="dateText" class="clockText"><span id="weekDayText"></span>,<span id="monthText"></span><span id="dayOfMonthText"></span> <span id="yearText"></span></p>
+        <p id="dateText" class="clockText"><span id="weekDayText" class="clockText"></span>,<span id="monthText" class="clockText"></span><span id="dayOfMonthText" class="clockText"></span> <span id="yearText" class="clockText"></span></p>
         </div>
         <div id="timeText">
-          <b id="time"class="clockText">00:00:00</b>
-          <p id="am_pmText" class="clockText">AM</p>
-          <p id="textMode24h" class="clockText hide">24</p>
+          <p id="time"class="clockText">00:00:00</p>
+          <p id="am_pmText" class="modeText clockText">AM</p>
+          <p id="textMode24h" class=" modeText clockText hide">24</p>
         </div>
       </div>
       <div id="buttonContainer">
-         <button id="modeBtn" class="btn">Mode</button>
-         <button id="addAlarmBtn" class="btn">Alarm</button>
-         <button class="btn">Snooze</button>
-         <button class="btn">Stop</button>
+         <button id="modeBtn" class="btn">MODE</button>
+         <button id="addAlarmBtn" class="btn">ALARM</button>
+         <button class="btn">SNOOZE</button>
+         <button class="btn">STOP</button>
       </div>
     </div>
     <dialog id="addAlarmModal">
-      <h3>Set new alarm</h3>
-      <div id=inputContainer>
-        
-      <label>Title:</label>
-      <input id="newAlarmTitle"type="text" placeholder="alarm1">
-      <label>Date:</label>
-      <input id="newAlarmDate"type="date" value="2025-06-08">
-      <label>Time:</label>
-      <input id="newAlarmTime"type="time" value="09:00">
-      </div>
+      <h2>SET NEW ALARM</h2>
+        <form id=inputContainer>
+          <label>TITLE:</label>
+          <input id="newAlarmTitle"type="text" placeholder="ALARM 1">
+          <label>DATE:</label>
+          <input id="newAlarmDate"type="date" value="2025-06-08">
+          <label>TIME:</label>
+          <input id="newAlarmTime"type="time" value="09:00">
+        </form>    
       <div id="repeatDaysContainer">
         <span id="sunday" class="alarmDays" data-day="sunday">S</span>
         <span id="monday" class="alarmDays">M</span>
@@ -48,12 +46,10 @@
         <span id="friday" class="alarmDays">F</span>
         <span id="saturday" class="alarmDays">S</span>
       </div>
-      <button id="cancelBtn"class="modalBtn btn">Cancel</button>
-      <button id="saveBtn"class="modalBtn btn">Save</button>
+      <button id="cancelBtn"class="modalBtn btn">CANCEL</button>
+      <button id="saveBtn"class="modalBtn btn">SAVE</button>
     </dialog>
-    <dialog id=confirmCancelBtn>
-      <p>are you sure?</p>
-    </dialog>
+    <div id="alarmListContainer" ></div>
     <script src="script.js"></script>
   </body>
 </html>
